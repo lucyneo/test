@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Admin-main</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/bootstrapdist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../static/bootstrapdist/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/admin-main.css" rel="stylesheet">
+
+
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" >OnlineExamination</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#login">{{ name }}</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+    </nav>
+    <!--小屏设备重叠-->
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-md-4 column">
+          
+          
+          <div class="picurl">
+            <a href="/admin_main">
+                <img src="../../static/resources/admin-circle.png" alt="pic" class="img-circle">
+            </a>
+          </div>
+
+          <div class="row clearfix">
+            <div class="col-md-1 column">
+            </div>
+            <div class="col-md-10 column">
+              <div class="jumbotron">
+                 <p><a id="modal-493769" href="#modal-container-493769" role="button" class="btn btn-success btn-block" data-toggle="modal">{{ name }}</a></p>
+                 
+                  <div class="modal fade" id="modal-container-493769" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                          <h2 class="modal-title" id="myModalLabel">
+                            个人信息
+                          </h2>
+                        </div>
+                        <div class="modal-body">
+                         <p>用户名：{{ username }}</p>
+                         <p>姓名：{{ name }}</p>
+                         <p>邮箱：{{ mail }}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button"  style="width:70px;height:50px;" class="btn btn-default " data-dismiss="modal">ok</button> 
+                        </div>
+                      </div>                      
+                    </div>
+                  </div>
+
+                <p><a class="btn btn-lg btn-danger  btn-block" href="/logout" role="button">Logout</a></p>
+              </div>
+            </div>
+            <div class="col-md-1 column">
+            </div>      
+          </div>
+
+          
+
+
+        </div>
+
+        <div class="col-md-8 column">
+
+          <div class="row clearfix">
+            
+            <div class="col-md-6 column">
+              <h1>
+						    用户及成绩表管理
+					    </h>
+            </div>
+            <div class="col-md-4 column">
+              <div class="jumbotron">
+                <a class="btn btn-lg btn-primary btn-block " href="/infoeditor" role="button" ><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" ></span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row clearfix">
+            
+            <div class="col-md-6 column">
+              <h1>
+						    题库管理
+					    </h>
+            </div>
+            <div class="col-md-4 column">
+              <div class="jumbotron">
+                 <a class="btn btn-lg btn-primary btn-block " href="/questionbank" role="button" ><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" ></span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row clearfix">
+            <div class="col-md-6 column">
+              <h1>
+						    系统设置
+					    </h>
+            </div>
+            <div class="col-md-4 column">
+              <div class="jumbotron">
+                 <a class="btn btn-lg btn-primary btn-block " href="/settings" role="button" ><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" ></span></a>
+              </div>
+            </div>
+          </div>
+
+   
+          
+        </div>
+
+
+      </div>
+    </div>
+    
+
+
+    <div id="footer" class="container_footer">
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+          <div class="navbar-inner navbar-content-center">
+              <p class="text-muted credit" style="padding: 10px;" >
+                  this is our footer
+              </p>
+          </div>
+      </nav>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../static/bootstrapdist/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../static/bootstrapdist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../static/bootstrapdist/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="../../static/bootstrapdist/assets/js/ie-emulation-modes-warning.js"></script>
+  </body>
+</html>

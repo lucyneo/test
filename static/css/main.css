@@ -1,0 +1,62 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  padding-top: 50px;
+  height: 100%;
+  background-color: #fff;
+}
+body {
+  color: #333;
+  text-align: center;
+  /*text-shadow: 0 1px 3px rgba(0,0,0,.5);*/
+}
+
+.starter-template {
+  /*padding: 40px 15px;*/
+  text-align: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.jumbotron {
+  position: absolute;
+  top: 50%;   
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  /* on page center */
+  text-align: center;
+  background-color: transparent;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+
+.container_footer .navbar-inner{
+  background-color: #e5e5e5;
+}
+.container_footer p{
+  color:#000000;
+}

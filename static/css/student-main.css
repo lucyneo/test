@@ -1,0 +1,137 @@
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  padding-top: 50px;
+  height: 100%;
+  background-color: #fff;
+}
+body {
+  color: #333;
+  text-align: center;
+  /*text-shadow: 0 1px 3px rgba(0,0,0,.5);*/
+}
+
+.starter-template {
+  /*padding: 40px 15px;*/
+  text-align: center;
+}
+
+/*.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #f5f5f5;
+}*/
+
+
+.jumbotron {
+  /*position: absolute;
+  top: 50%;   
+  left: 50%; 
+  transform: translate(-50%, -50%); */
+  /* on page center */
+  text-align: center;
+  background-color: transparent;
+}
+.jumbotron .btn {
+  padding: 10px 10px;
+  font-size: 21px;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .select {
+  margin-bottom: 10px;
+}
+.form-signin .select {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+}
+
+.picurl{
+    position:relative;
+    top:10px;
+    margin-left:auto;
+    margin-right:auto;
+    width:300px;
+    height:300px;
+    /*border:1px solid #00F;*/
+}
+
+.col-md-8 h1{
+    position:relative;
+    top:35px;
+    left:0px;
+}
+/*.col-md-8 .jumbotron .btn{
+    position:relative;
+    left:0px;
+    
+}*/
+.container_footer .navbar-inner{
+  background-color: #e5e5e5;
+}
+.container_footer p{
+  color:#000000;
+}
+
+.modal-dialog{  
+    position:fixed;
+    top:30%;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}   
+
+/*
+#modal-container-493769 {
+  position: absolute;
+  top: 50%;   
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+}*/

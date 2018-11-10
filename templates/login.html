@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrapdist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../static/bootstrapdist/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/login.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../static/bootstrapdist/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <link rel="stylesheet" href="../static/bootstrapdist/css/cssbootstrap-select.css">
+    
+
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">OnlineExamination</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/login">Login</a></li>
+                </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+    </nav>
+
+    {% if error  %} 
+    <div class="alert alert-dismissable alert-danger">
+				 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h4>
+					Attention!
+				</h4> <strong>Warning!</strong>{{ errormsg }} 
+		</div>
+    {% endif %}
+
+    <div class="container">
+
+      <form class="form-signin" method="post">
+        {% csrf_token %}
+        <h1 class="form-signin-heading">Please sign in</h1>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
+        <div>
+          <!-------------------------------------------------------------------------------------------------------------->
+            <select id="selectid" name="selectid" class="select show-tick form-control" data-live-search="true"  data-live-search-style="begins" title="Please select">
+                <option>Student</option>
+                <option>Teacher</option>
+                <option>Administrator</option>
+            </select>
+          
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+
+
+
+    <div id="footer" class="container_footer">
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+          <div class="navbar-inner navbar-content-center">
+              <p class="text-muted credit" style="padding: 10px;">
+                  this is our footer
+              </p>
+          </div>
+      </nav>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../static/bootstrapdist/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../static/bootstrapdist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../static/bootstrapdist/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="../static/bootstrapdist/js/bootstrap-select.js"></script>
+  </body>
+</html>

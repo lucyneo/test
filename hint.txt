@@ -1,0 +1,31 @@
+这个我做了，请看 http://blog.xinzhe.net/?p=669
+
+最近在做项目，发现要用mysql中的view视图方便，django自身不提供相应的方法，一开始想直接在代码里写sql语句，但比较麻烦，也不符合MVC的标准，后来在stackoverflow.com找到了相应的解决方案，结合那个方法和我实际操作，在django中使用数据库的视图方法如下：
+
+1、首先在django对应的app的models.py中有如下两个class:
+
+class A(models.Model):
+a = models.....
+
+class B(models.Model):
+b = models......
+2、然后再models.py相同的目录下新建一个.py文件，例如app_view_models.py，该文件的代码如下：
+
+from models import *
+
+class AB(models.Model):
+a = models.....
+b = models...... 
+class Meta:
+db_table = 'view_app' 
+注：这里的 db_table 要和mysql新建的view的名字相同才行！
+
+3、在mysql中新建一个view名字为view_app，并将A，B两个class放入相应的view中
+
+A 和 B 也可以都为mysql中的视图，我的例子就是，view_system_act是创建的虚拟视图
+
+4、 此时在views中就能正常使用django提供的数据库操作的方法了，即
+
+ab = AB.objects.filter(a='',b='')
+print ab.a,ab.b
+注：大部分情况下不能执行ab.delete 和 ab.a = ’123′类似的操作

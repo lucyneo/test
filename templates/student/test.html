@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Student-test</title>
+
+    <link href="../../static/bootstrapdist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/bootstrapdist/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../../static/css/tests.css" rel="stylesheet">
+    <link href="../../static/bootstraptable/bootstrap-table.css" rel="stylesheet">
+    <link href="../../static/bootstraptable/bootstrap-table.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <script type="text/javascript">  
+         function indexFormatter(value, row, index) {  
+              return index;  
+         }  
+    </script>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">OnlineExamination</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#login" id="usertag">{{ name }}</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+                </div>
+            </div>
+    </nav>
+
+    
+
+
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <div class="picurl">
+                <a href="/student_main/">
+                    <img src="../../static/resources/admin-circle.png" alt="pic" class="img-circle">
+                </a>
+            </div>
+            
+            <li class="active " ><a href="/testui">Test<span class="sr-only" >(current)</span></a></li>
+            <li class="disabled"><a href="/personalgrade" >Grade Table</a></li>
+            
+            
+          </ul>
+
+          <ul class="nav nav-sidebar">
+            <li class="disabled"><a href="/student_main">Return</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="contentleft">
+                <label class="hidden" id="paperidlabel">{{ paperid }}</label>
+                <div class="row clearfix">
+                    <div class="col-md-1 column">
+                    </div>
+                    <div class="col-md-9 column">
+                    {% if questionlist %}
+                      {% for question in questionlist %}
+                        
+                        {% if question.choice %}
+                        <div class="panel-heading" style="font-size:50px;">{{ question.num }}</div>
+                        <div class="container">
+                            <div class="row clearfix">
+                                <div class="col-md-6 column">
+                                    {{  question.content  }}
+                                </div>
+                                <div class="col-md-1 column">
+                                    <select class="form-control"  width="20px" > 
+                                    <option>A</option>
+                                    <option>B</option>
+                                    <option>C</option>
+                                    <option>D</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1 column">
+                                    <button class="btn btn-default" type="submit" onclick="myFunction(this)">Save</button>
+                                    <label class="hidden">{{ question.questionid }}</label>
+                                    <label class="hidden">{{ question.ischoice }}</label> 
+                                </div>
+                            </div>
+                            
+                            <div class="row clearfix">
+                                <div class="col-md-12 column sectiona" name="choice">
+                                    A){{  question.choice.0  }}
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12 column sectionb" name="choice">
+                                    B){{  question.choice.1  }}
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12 column sectionc" name="choice">
+                                    C){{  question.choice.2   }}
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12 column sectiond" name="choice">
+                                    D){{  question.choice.3  }}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        {% else %}
+                        <div class="panel-heading" style="font-size:50px;">{{ question.num }}</div>
+                        
+                        <div class="container">
+                            <div class="row clearfix">
+                                <div class="col-md-6 column">
+                                    {{  question.content  }}
+                                </div>
+                                <div class="col-md-1 column">
+                                </div>
+                                <div class="col-md-1 column">
+                                </div>
+                            </div>
+                            
+                            <div class="row clearfix">
+                                <div class="col-md-8 column">
+                                    
+                                    <div class="input-group">
+                                        
+                                        <input type="text" class="form-control" placeholder="Answer here" >
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" onclick="myFunction(this)">Save</button>
+                                            <label class="hidden">{{ question.questionid }}</label>
+                                            <label class="hidden">{{ question.ischoice }}</label>
+                                        </span>                                 
+                                    </div><!-- /input-group -->
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endif %}
+
+                    
+                      {% endfor %}
+
+                    {% else %}
+                      <h1 style="font-size:80px;">Error</h1>
+                    {% endif %}
+
+
+
+
+                    </div>
+                    <div class="col-md-2 column">
+                    </div>
+                </div>
+                   
+                
+
+                
+   
+        </div>
+        </div>
+    </div>
+
+    <div id="footerblank">
+    </div>
+    
+
+    
+
+
+    <div id="footer" class="container_footer">
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+          <div class="navbar-inner navbar-content-center">
+              <p class="text-muted credit" style="padding: 10px;text-align:center;">
+                  this is our footer
+              </p>
+          </div>
+      </nav>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../static/bootstrapdist/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../static/bootstrapdist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../static/bootstrapdist/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="../../static/bootstrapdist/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../../static/js/test.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table.min.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table-en-US.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table-zh-CN.js"></script>
+    
+  </body>
+</html>

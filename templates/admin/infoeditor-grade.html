@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Admin-infograde</title>
+
+    <link href="../../static/bootstrapdist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/bootstrapdist/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../../static/css/infoeditor.css" rel="stylesheet">
+    <link href="../../static/bootstraptable/bootstrap-table.css" rel="stylesheet">
+    <link href="../../static/bootstraptable/bootstrap-table.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">OnlineExamination</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#login" id="usertag">{{ name }}</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+                </div>
+            </div>
+    </nav>
+
+    
+
+
+   <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <div class="picurl">
+                <a href="/admin_main">
+                    <img src="../../static/resources/admin-circle.png" alt="pic" class="img-circle">
+                </a>
+            </div>
+            
+
+            <li><a href="/infoeditor" id="teachertabletag">Student Table</a></li>
+            <li><a href="/infoeditor_teacher" id="gradetabletag">Teacher Table</a></li>
+            <li class="active"><a href="/infoeditor_grade">Grade Table<span class="sr-only" id="studenttabletag">(current)</span></a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="/questionbank">QuestionBank</a></li>
+          </ul>
+           <ul class="nav nav-sidebar">
+            <li><a href="/settings">System Settings</a></li>
+
+          </ul>
+          <ul class="nav nav-sidebar">
+ 
+            <li><a href="/admin_main">Return</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                
+                <div class="panel-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="font-size:50px;">成绩一览</div>
+                        
+                    </div>       
+
+                    <div id="toolbar" class="btn-group">
+                        <!-- <button id="btn_add" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+                        </button> -->
+                        <button id="btn_edit" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
+                        </button>
+                        <button id="btn_delete" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                        </button>
+                    </div>
+                    <table id="tb" data-toggle="table"></table>
+                </div>  
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div id="footer" class="container_footer">
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+          <div class="navbar-inner navbar-content-center">
+              <p class="text-muted credit" style="padding: 10px;text-align:center;">
+                  this is our footer
+              </p>
+          </div>
+      </nav>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../static/bootstrapdist/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../static/bootstrapdist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../static/bootstrapdist/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="../../static/bootstrapdist/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../../static/js/infoeditor-grades.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table.min.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table-en-US.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table-zh-CN.js"></script>
+    
+  </body>
+</html>

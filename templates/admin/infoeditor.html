@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Admin-tablestudent</title>
+
+    <link href="../../static/bootstrapdist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/bootstrapdist/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../../static/css/infoeditor.css" rel="stylesheet">
+    <link href="../../static/bootstraptable/bootstrap-table.css" rel="stylesheet">
+    <link href="../../static/bootstraptable/bootstrap-table.min.css" rel="stylesheet">
+    <link href="../../static/bootstraptable/click-edit-row/bootstrap-table-click-edit-row.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">OnlineExamination</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#login" id="usertag">{{ name }}</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <div class="picurl">
+                        <a href="/admin_main">
+                    <img src="../../static/resources/admin-circle.png" alt="pic" class="img-circle">
+                </a>
+                    </div>
+                    <li class="active"><a href="/infoeditor">Student Table<span class="sr-only" id="studenttabletag">(current)</span></a></li>
+
+                    <li><a href="/infoeditor_teacher" id="teachertabletag">Teacher Table</a></li>
+                    <li><a href="/infoeditor_grade" id="gradetabletag">Grade Table</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="/questionbank">QuestionBank</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="/settings">System Settings</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+
+                    <li><a href="/admin_main">Return</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+                <div class="panel-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="font-size:50px;">学生信息表</div>
+                        <!--<div class="panel-body">
+                            <form id="formSearch" class="form-horizontal">
+                                <div class="form-group" style="margin-top:15px">
+                                    <label class="control-label col-sm-1" for="txt_search_departmentname">部门名称</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" id="txt_search_departmentname">
+                                    </div>
+                                    
+                                    <div class="col-sm-4" style="text-align:left;">
+                                        <button type="button" style="margin-left:50px" id="btn_query" class="btn btn-primary">查询</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>-->
+                    </div>
+
+                    <div id="toolbar" class="btn-group">
+                        <!--<button id="btn_add" type="button" class="btn btn-default" href="#modal-add">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+                        </button>-->
+                        <a id="modal-493769" href="#modal-add" role="button" class="btn btn-default " data-toggle="modal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增</a>
+                        <a id="btneditrequest"  href="#" role="button" class="btn btn-default " data-toggle="modal"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改</a>
+                        <!--不知道花式js不能打开-->
+                        <button id="btn_delete" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                        </button>
+                    </div>
+                    <table id="tb" data-toggle="table"></table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--dialog for add info-->
+    <div class="modal fade" id="modal-add" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:300px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h2 class="modal-title" id="myModalLabel">
+                        添加学生记录
+                    </h2>
+                </div>
+                <div class="modal-body">
+
+                    <form>
+                        <div class="form-group">
+                            <label for="inputusername">Username</label>
+                            <input type="text" class="form-control" id="inputusername" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputname">Name</label>
+                            <input type="text" class="form-control" id="inputname" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputpwd">Password</label>
+                            <input type="password" class="form-control" id="inputpwd" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputemail">Email</label>
+                            <input type="email" class="form-control" id="inputemail" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputmajor">Major</label>
+                            <input type="text" class="form-control" id="inputmajor" placeholder="Major">
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="dialogsubmit">Submit</button>
+                    </form>
+
+                </div>
+                <!--<div class="modal-footer">
+                            <button type="button"  style="width:70px;height:50px;" class="btn btn-default " data-dismiss="modal">ok</button> 
+                        </div>-->
+            </div>
+        </div>
+    </div>
+
+    <!--dialog for edit info-->
+    <div class="modal fade" id="modaledit" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:300px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h2 class="modal-title" id="myModalLabel">
+                        编辑学生记录
+                    </h2>
+                </div>
+                <div class="modal-body">
+
+                    <form>
+                        <div class="form-group">
+                            <label for="inputusername">Username</label>
+                            <input type="text" class="form-control" id="inputusername" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputname">Name</label>
+                            <input type="text" class="form-control" id="inputname" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputpwd">Password</label>
+                            <input type="password" class="form-control" id="inputpwd" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputemail">Email</label>
+                            <input type="email" class="form-control" id="inputemail" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputmajor">Major</label>
+                            <input type="text" class="form-control" id="inputmajor" placeholder="Major">
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="dialogeditsave">Save</button>
+                    </form>
+
+                </div>
+                <!--<div class="modal-footer">
+                            <button type="button"  style="width:70px;height:50px;" class="btn btn-default " data-dismiss="modal">ok</button> 
+                        </div>-->
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="footer" class="container_footer">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="navbar-inner navbar-content-center">
+                <p class="text-muted credit" style="padding: 10px;text-align:center;">
+                    this is our footer
+                </p>
+            </div>
+        </nav>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../static/bootstrapdist/assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="../../static/bootstrapdist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../static/bootstrapdist/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="../../static/bootstrapdist/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../../static/js/infoeditor-stude.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table.min.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table-en-US.js"></script>
+    <script src="../../static/bootstraptable/bootstrap-table-zh-CN.js"></script>
+
+    <script src="../../static/bootstraptable/click-edit-row/bootstrap-table-click-edit-row.js"></script>
+    <script src="../../static/bootstraptable/export/bootstrap-table-export.js"></script>
+    <script src="../../static/bootstraptable/toolbar/bootstrap-table-toolbar.js"></script>
+
+</body>
+
+</html>
